@@ -24,9 +24,13 @@ function ResultCard(props) {
 			<div>
 				Your Score Is {CalculateScore(answers).score}/{questions.length}
 			</div>
-			<div>
-				Your Achieved {CalculateScore(answers).score / questions.length * 100}% marks
-			</div>
+			Your Achieved {CalculateScore(answers).score / questions.length * 100}% marks
+			{
+				CalculateScore(answers).score / questions.length * 100 >= 50 ?
+					<div>Congratulations you passed</div>
+					:
+					<div>Unbelievable you failed</div>
+			}
 			{(CalculateScore(answers).score === 0
 				&&
 				<div>
